@@ -18,6 +18,6 @@ jobs:
           dotnet-version: 8
           dotnet-quality: 'preview'
       - name: Build and Pack
-        run: dotnet build FluentAvalonia --configuration Release
+        run: dotnet build --configuration Release
       - name: Publish to GitHub Packages
         run: dotnet nuget push "FluentAvalonia/bin/Release/*.nupkg" --api-key ${{secrets.NUGET_PACKAGE_TOKEN}} --source https://nuget.pkg.github.com/brokiem/index.json --skip-duplicate
