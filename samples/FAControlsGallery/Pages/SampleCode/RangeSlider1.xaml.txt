@@ -1,1 +1,0 @@
-﻿<ui:RangeSlider Minimum="$(Minimum)" Maximum="$(Maximum)" StepFrequency="$(StepFreq)" ShowValueToolTip="$(ShowToolTip)" />

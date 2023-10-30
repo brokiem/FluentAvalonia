@@ -1,4 +1,0 @@
-﻿private void Button2Click(object sender, RoutedEventArgs e)
-{
-    TeachingTip2.IsOpen = true;
-}
