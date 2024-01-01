@@ -77,27 +77,6 @@
                                       HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                       CornerRadius="{TemplateBinding CornerRadius}"
                                       Margin="2"/>
-
-                    <!-- added 1px left margin, otherwise we can get strange artifacts while
-                         animating, I'm guessing from bad invalidation rects? -->
-                    <Rectangle Name="SelectionIndicator"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               Width="3" Height="16"
-                               Margin="2 0 0 0"
-                               UseLayoutRounding="False"
-                               RadiusX="2" RadiusY="2"
-                               IsVisible="False"
-                               RenderTransform="scaleY(0)"
-                               Fill="{DynamicResource AccentFillColorDefaultBrush}">
-                        <Rectangle.Transitions>
-                            <Transitions>
-                                <TransformOperationsTransition Duration="00:00:00.167"
-                                                               Property="RenderTransform"
-                                                               Easing="0,0 0,1"/>
-                            </Transitions>
-                        </Rectangle.Transitions>
-                    </Rectangle>
                 </Panel>
             </ControlTemplate>
         </Setter>
@@ -133,10 +112,6 @@
             <Style Selector="^ /template/ ContentPresenter">
                 <Setter Property="Foreground" Value="{DynamicResource ListViewItemForegroundSelected}" />
             </Style>
-            <Style Selector="^ /template/ Rectangle#SelectionIndicator">
-                <Setter Property="IsVisible" Value="True" />
-                <Setter Property="RenderTransform" Value="scaleY(1)" />
-            </Style>
             <Style Selector="^:not(:focus) /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Background" Value="{DynamicResource ListViewItemBackgroundSelected}" />
             </Style>
@@ -152,9 +127,6 @@
                 <Style Selector="^ /template/ ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource ListViewItemForegroundSelectedPointerOver}" />
                 </Style>
-                <Style Selector="^ /template/ Rectangle#SelectionIndicator">
-                    <Setter Property="Fill" Value="{DynamicResource ListViewItemSelectionIndicatorPointerOverBrush}" />
-                </Style>
             </Style>
 
             <Style Selector="^:pressed">
@@ -164,15 +136,6 @@
                 <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                     <Setter Property="Foreground" Value="{DynamicResource ListViewItemForegroundSelectedPressed}" />
                 </Style>
-                <Style Selector="^ /template/ Rectangle#SelectionIndicator">
-                    <Setter Property="Fill" Value="{DynamicResource ListViewItemSelectionIndicatorPressedBrush}" />
-                    <!-- TODO: Uncomment when Avalonia fixes selection to work on pointer up -->
-                    <!--<Setter Property="RenderTransform" Value="scaleY(0.5)" />-->
-                </Style>
-            </Style>
-
-            <Style Selector="^:disabled /template/ Rectangle#SelectionIndicator">
-                <Setter Property="Fill" Value="{DynamicResource ListViewItemSelectionIndicatorDisabledBrush}" />
             </Style>
         </Style>
     </ControlTheme>
