@@ -6,7 +6,7 @@
     <Nullable>disable</Nullable>
     <MicroComGeneratorRuntimeNamespace>MicroCom.Runtime</MicroComGeneratorRuntimeNamespace>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-    <PackageId>FluentAvaloniaUI</PackageId>
+    <PackageId>brokiem.FluentAvaloniaUI</PackageId>
 
     <NoWarn>$(NoWarn);NU1507</NoWarn>
   </PropertyGroup>
